@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Overlay con 2 QR</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('fondo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .overlay {
+      background: transparent;
+      padding-top: 40px;
+      text-align: center;
+      width: 320px;
+      position: relative;
+      color: #fff;
+    }
+
+    .qr {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 10px;
+    }
+
+    .slogan {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
+
+    .rotating-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .rotating-item.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .rotating-item img {
+      width: 200px;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+
+    .rotating-item .slogan {
+      font-size: 1.1em;
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <div class="rotating-item active">
+      <img src="https://i.postimg.cc/NGDgYFFT/November5-084525AM.png" alt="QR Principal" class="qr" />
+      <div class="slogan">DESCARGA NUESTRA APP</div>
+    </div>
+
+    <div class="rotating-item">
+      <img src="https://i.postimg.cc/g2RQztsM/November5-084236AM.png" alt="QR Alternativo" class="qr" />
+      <div class="slogan">SIGUENOS EN FACEBOOK "CURATV"</div>
+    </div>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll('.rotating-item');
+    let index = 0;
+
+    setInterval(() => {
+      items[index].classList.remove('active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('active');
+    }, 10000);
+  </script>
+</body>
+</html>
