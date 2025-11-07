@@ -18,25 +18,50 @@
 
     .overlay {
       background: transparent;
-      padding-top: 40px;
       text-align: center;
-      width: 320px;
+      width: 90%;
+      max-width: 360px;
       position: relative;
       color: #fff;
     }
 
-    .qr {
-      width: 200px;
-      height: 200px;
+    .qr-frame {
+      width: 220px;
+      height: 220px;
       margin: 0 auto 10px;
+      padding: 10px;
+      border-radius: 20px;
+      background: #000;
+      animation: neonCycle 3s infinite;
+    }
+
+    .qr-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    @keyframes neonCycle {
+      0% {
+        box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
+      }
+      33% {
+        box-shadow: 0 0 15px #f0f, 0 0 25px #f0f;
+      }
+      66% {
+        box-shadow: 0 0 15px #ff0, 0 0 25px #ff0;
+      }
+      100% {
+        box-shadow: 0 0 15px #0ff, 0 0 25px #0ff;
+      }
     }
 
     .slogan {
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: bold;
       margin-bottom: 20px;
       color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 6px #000;
     }
 
     .rotating-item {
@@ -44,7 +69,12 @@
       top: 0;
       left: 0;
       width: 100%;
+      height: 100%;
       opacity: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       transition: opacity 1s ease-in-out;
     }
 
@@ -53,30 +83,27 @@
       z-index: 1;
     }
 
-    .rotating-item img {
-      width: 200px;
-      height: 200px;
-      margin-bottom: 10px;
-    }
-
     .rotating-item .slogan {
-      font-size: 1.1em;
+      font-size: 1.2em;
       color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+      text-shadow: 2px 2px 6px #000;
     }
   </style>
 </head>
 <body>
   <div class="overlay">
     <div class="rotating-item active">
-      <img src="https://i.postimg.cc/NGDgYFFT/November5-084525AM.png" alt="QR Principal" class="qr" />
+      <div class="qr-frame">
+        <img src="https://i.postimg.cc/NGDgYFFT/November5-084525AM.png" alt="QR Principal" />
+      </div>
       <div class="slogan">DESCARGA NUESTRA APP</div>
     </div>
 
     <div class="rotating-item">
-      <img src="https://i.postimg.cc/g2RQztsM/November5-084236AM.png" alt="QR Alternativo" class="qr" />
-      <div class="slogan">SIGUENOS EN FACEBOOK 
-            "CURATV"</div>
+      <div class="qr-frame">
+        <img src="https://i.postimg.cc/g2RQztsM/November5-084236AM.png" alt="QR Alternativo" />
+      </div>
+      <div class="slogan">SÍGUENOS EN FACEBOOK "CURATV"</div>
     </div>
   </div>
 
